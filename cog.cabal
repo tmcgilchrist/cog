@@ -1,0 +1,57 @@
+Name:                cog
+Version:             0.0.1
+Synopsis:            cog
+Author:              Tim McGilchrist
+Maintainer:          timmcgil@gmail.com
+Category:            Development
+Build-type:          Simple
+Cabal-version:       >= 1.8
+
+library
+  build-depends:
+                      base                            >= 3          && < 5
+                    , filepath
+                    , mtl
+                    , process
+                    , bytestring
+                    , syb
+                    , containers
+                    , megaparsec                      >= 5.0        && < 5.1
+                    , text
+                    , transformers
+
+  ghc-options:
+                    -Wall
+
+  hs-source-dirs:
+                    src
+
+  exposed-modules:
+                    Cog
+
+Executable cog
+  main-is:            cog.hs
+  hs-source-dirs:
+                    main
+  build-depends:      
+                      base
+                    , cog
+                    , filepath
+                    , mtl
+                    , process
+                    , bytestring
+                    , containers
+                    , megaparsec
+                    , optparse-applicative            >= 0.12     && < 0.13
+
+
+test-suite tests
+  type:             exitcode-stdio-1.0
+  main-is:          test.hs
+  hs-source-dirs:   test
+  build-depends:    base
+                  , containers
+                  , QuickCheck
+
+
+
